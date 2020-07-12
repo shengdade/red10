@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LineChart from './LineChart';
 import RoundTable from './RoundTable';
+import Header from './Header';
 import { Container } from '@material-ui/core';
 
 function createData(round, player1, player2, player3, player4) {
@@ -51,10 +52,13 @@ function App() {
   const chartData = getChartData(tableData);
 
   return (
-    <Container>
-      <LineChart source={chartData} />
-      <RoundTable rows={tableData} setTableData={setTableData} />
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <LineChart source={chartData} />
+        <RoundTable rows={tableData} setTableData={setTableData} />
+      </Container>
+    </>
   );
 }
 
