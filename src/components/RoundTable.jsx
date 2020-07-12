@@ -14,7 +14,7 @@ function RoundTable({ rows, setTableData }) {
   };
 
   return (
-    <Table>
+    <Table size="small">
       <TableHead>
         <TableRow>
           <TableCell align="center">Round</TableCell>
