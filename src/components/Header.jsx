@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Fade } from 'react-reveal';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import SettingsIcon from '@material-ui/icons/Settings';
 import red from '@material-ui/core/colors/red';
+import SettingsDialog from './SettingsDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function Header() {
+function Header({ players, setPlayers }) {
   const classes = useStyles();
+  const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
 
   return (
     <Fade top duration={1000} distance="20px">
@@ -37,11 +39,17 @@ function Header() {
             <span className={classes.logoName}>Red 10</span>
             <span className={classes.greyColor}>&nbsp;&nbsp;/&gt;</span>
           </div>
-          <IconButton>
+          <IconButton onClick={() => setSettingsDialogOpen(true)}>
             <SettingsIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
+      <SettingsDialog
+        open={settingsDialogOpen}
+        setOpen={setSettingsDialogOpen}
+        players={players}
+        setPlayers={setPlayers}
+      />
     </Fade>
   );
 }
