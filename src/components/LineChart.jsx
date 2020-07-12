@@ -12,8 +12,13 @@ function LineChart({ source }) {
         dataset: {
           source
         },
+        grid: {
+          left: '3%',
+          right: '3%'
+        },
         xAxis: { type: 'category' },
         yAxis: { type: 'value' },
+        dataZoom: {},
         series: [
           { type: 'line', smooth: true, seriesLayoutBy: 'row' },
           { type: 'line', smooth: true, seriesLayoutBy: 'row' },
