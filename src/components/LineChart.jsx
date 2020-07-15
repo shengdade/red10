@@ -19,7 +19,7 @@ function LineChart({ source }) {
             left: '3%',
             right: '3%'
           },
-          xAxis: { type: 'category' },
+          xAxis: { type: 'category', axisTick: { show: false } },
           yAxis: { type: 'value' },
           dataZoom: {},
           series: [
