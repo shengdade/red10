@@ -16,35 +16,37 @@ function RoundTable({ rows, setTableData, players }) {
 
   return (
     <Fade bottom duration={1000} distance="40px">
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">Round</TableCell>
-            <TableCell align="center">{players.player1}</TableCell>
-            <TableCell align="center">{players.player2}</TableCell>
-            <TableCell align="center">{players.player3}</TableCell>
-            <TableCell align="center">{players.player4}</TableCell>
-            <TableCell align="center">Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <RoundAdd rows={rows} setTableData={setTableData} />
-          {rows.map((row) => (
-            <TableRow key={row.round}>
-              <TableCell align="center">{row.round}</TableCell>
-              <TableCell align="center">{row.player1}</TableCell>
-              <TableCell align="center">{row.player2}</TableCell>
-              <TableCell align="center">{row.player3}</TableCell>
-              <TableCell align="center">{row.player4}</TableCell>
-              <TableCell align="center">
-                <IconButton onClick={() => onDeleteClick(row.round)}>
-                  <DeleteIcon fontSize="small" />
-                </IconButton>
-              </TableCell>
+      <div style={{ overflow: 'auto' }}>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Round</TableCell>
+              <TableCell align="center">{players.player1}</TableCell>
+              <TableCell align="center">{players.player2}</TableCell>
+              <TableCell align="center">{players.player3}</TableCell>
+              <TableCell align="center">{players.player4}</TableCell>
+              <TableCell align="center">Action</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            <RoundAdd rows={rows} setTableData={setTableData} />
+            {rows.map((row) => (
+              <TableRow key={row.round}>
+                <TableCell align="center">{row.round}</TableCell>
+                <TableCell align="center">{row.player1}</TableCell>
+                <TableCell align="center">{row.player2}</TableCell>
+                <TableCell align="center">{row.player3}</TableCell>
+                <TableCell align="center">{row.player4}</TableCell>
+                <TableCell align="center">
+                  <IconButton onClick={() => onDeleteClick(row.round)}>
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </Fade>
   );
 }

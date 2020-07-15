@@ -25,3 +25,7 @@ export function getChartData(players, tableData) {
     [players.player4, 0, ...player4]
   ];
 }
+
+export function createData(round, player1, player2, player3, player4) {
+  return { round, player1, player2, player3, player4 };
+}
